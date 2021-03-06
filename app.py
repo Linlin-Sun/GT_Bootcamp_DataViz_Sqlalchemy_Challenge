@@ -49,7 +49,7 @@ def stations():
 def tobs():
     results = session.query(Measurement.tobs).filter(Measurement.station == 'USC00519281').filter(Measurement.date > one_year_ago_date).all()
     final_result = list(np.ravel(results))
-    return jsonify(stations = final_result)
+    return jsonify(temps = final_result)
 
 @app.route('/api/v1.0/<start>')
 @app.route('/api/v1.0/<start>/<end>')
